@@ -1,5 +1,7 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloDeCaixas;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
-public class Caixa
+namespace ClubeDaLeitura.ConsoleApp.ModuloDeCaixas;
+
+public class Caixa : EntidadeBase
 {
 }

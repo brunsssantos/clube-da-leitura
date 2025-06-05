@@ -1,4 +1,6 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.Compartilhado;
+﻿using GestaoDeEquipamentos.ConsoleApp.Compartilhado;
+
+namespace ClubeDaLeitura.ConsoleApp.Compartilhado;
 public abstract class TelaBase
 {
     protected string nomeEntidade;

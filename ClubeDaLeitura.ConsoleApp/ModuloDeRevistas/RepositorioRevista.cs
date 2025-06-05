@@ -1,5 +1,5 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloDeRevistas;
+﻿using GestaoDeEquipamentos.ConsoleApp.Compartilhado;
 
-public class RepositorioRevista
-{
-}
+namespace ClubeDaLeitura.ConsoleApp.ModuloDeRevistas;
+
+public class RepositorioRevista : RepositorioBase;

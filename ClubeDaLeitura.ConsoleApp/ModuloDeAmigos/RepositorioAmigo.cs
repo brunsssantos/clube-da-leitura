@@ -1,6 +1,5 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloDeAmigos;
+﻿using GestaoDeEquipamentos.ConsoleApp.Compartilhado;
 
-public class RepositorioAmigo
-{
-    public Amigo[] amigos = new Amigo[100];
-}
+namespace ClubeDaLeitura.ConsoleApp.ModuloDeAmigos;
+
+public class RepositorioAmigo : RepositorioBase;

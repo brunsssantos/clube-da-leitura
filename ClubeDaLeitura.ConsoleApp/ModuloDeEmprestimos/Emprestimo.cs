@@ -1,5 +1,7 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloDeEmprestimos;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
-public class Emprestimo
+namespace ClubeDaLeitura.ConsoleApp.ModuloDeEmprestimos;
+
+public class Emprestimo : EntidadeBase
 {
 }

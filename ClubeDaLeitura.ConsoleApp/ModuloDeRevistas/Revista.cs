@@ -1,5 +1,7 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloDeRevistas;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
-public class Revista
+namespace ClubeDaLeitura.ConsoleApp.ModuloDeRevistas;
+
+public class Revista : EntidadeBase
 {
 }

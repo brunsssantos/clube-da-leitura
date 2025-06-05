@@ -1,5 +1,5 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloDeEmprestimos;
+﻿using GestaoDeEquipamentos.ConsoleApp.Compartilhado;
 
-public class RepositorioEmprestimo
-{
-}
+namespace ClubeDaLeitura.ConsoleApp.ModuloDeEmprestimos;
+
+public class RepositorioEmprestimo : RepositorioBase;

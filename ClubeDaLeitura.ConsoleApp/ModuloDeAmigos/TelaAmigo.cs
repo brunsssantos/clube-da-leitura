@@ -1,29 +1,52 @@
-﻿namespace ClubeDaLeitura.ConsoleApp.ModuloDeAmigos;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
-public class TelaAmigo
+namespace ClubeDaLeitura.ConsoleApp.ModuloDeAmigos;
+
+public class TelaAmigo : TelaBase
 {
-    public char ApresentarMenu()
+    public TelaAmigo(RepositorioAmigo repositorio) : base("Amigo", repositorio)
     {
-        Console.WriteLine("Clube da Leitura");
+    }
+    public override void VisualizarRegistros(bool exibirCabecalho)
+    {
+        if (exibirCabecalho)
+            ExibirCabecalho();
 
-        Console.WriteLine();
+        Console.WriteLine("Visualização de Amigos\n");
 
-        Console.WriteLine("1 - Cadastrar amigos");
-        Console.WriteLine("2 - Editar amigo");
-        Console.WriteLine("3 - Excluir amigo");
-        Console.WriteLine("4 - Visualizar amigos");
-        Console.WriteLine("5 - Visualizar empréstimos de um amigo");
-        Console.WriteLine("S - Sair");
+        Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -15}",
+            "Id", "Nome", "Responsável", "Telefone");
 
-        Console.WriteLine();
+        EntidadeBase[] amigos = repositorio.SelecionarRegistros();
 
-        Console.WriteLine("Digite uma opção válida: ");
-        char opcaoEscolhida = Console.ReadLine()[0];
+        foreach (Amigo a in amigos)
+        {
+            if (a == null)
+                continue;
 
-        return opcaoEscolhida;
+            Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -15}",
+                a.id, a.nome, a.nomeResponsavel, a.telefone);
+        }
 
+        Console.ReadLine();
+    }
 
+    protected override EntidadeBase ObterDados()
+    {
+        Console.Write("Digite o nome do amigo: ");
+        string nome = Console.ReadLine();
 
+        Console.Write("Digite o nome do responsável: ");
+        string nomeResponsavel = Console.ReadLine();
 
+        Console.Write("Digite o telefone ((XX) XXXXX-XXXX): ");
+        string telefone = Console.ReadLine();
+
+        Amigo amigo = new Amigo();
+        amigo.nome = nome;
+        amigo.nomeResponsavel = nomeResponsavel;
+        amigo.telefone = telefone;
+
+        return amigo;
     }
 }
