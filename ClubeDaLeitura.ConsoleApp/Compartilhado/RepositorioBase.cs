@@ -1,4 +1,4 @@
-﻿using GestaoDeEquipamentos.ConsoleApp.ModuloFabricante;
+﻿using ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 namespace GestaoDeEquipamentos.ConsoleApp.Compartilhado;
 

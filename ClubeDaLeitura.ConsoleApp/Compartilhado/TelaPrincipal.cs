@@ -1,12 +1,28 @@
-﻿using ClubeDaLeitura.ConsoleApp.ModuloDeRevistas;
+﻿using ClubeDaLeitura.ConsoleApp.ModuloDeAmigos;
+using ClubeDaLeitura.ConsoleApp.ModuloDeCaixas;
+using ClubeDaLeitura.ConsoleApp.ModuloDeEmprestimos;
+using ClubeDaLeitura.ConsoleApp.ModuloDeRevistas;
 
 namespace ClubeDaLeitura.ConsoleApp.Compartilhado;
 
 public class TelaPrincipal
 {
     private char opcaoEscolhida;
+    private RepositorioAmigo repositorioAmigo;
+    private RepositorioCaixa repositorioCaixa;
+    private RepositorioRevista repositorioRevista;
+    private RepositorioEmprestimo repositorioEmprestimo;
+
+    private TelaAmigo telaAmigo;
+    private TelaCaixa telaCaixa;
+    private TelaRevista telaRevista;
+    private TelaRevista telaEmprestimo;
     public TelaPrincipal()
     {
+        repositorioAmigo = new RepositorioAmigo();
+        telaAmigo = new TelaAmigo(repositorioAmigo);
+        repositorioCaixa = new RepositorioCaixa();
+        telaCaixa = new TelaCaixa(repositorioCaixa);
     }
     public void ApresentarMenuPrincipal()
     {
@@ -34,16 +50,16 @@ public class TelaPrincipal
     public TelaBase ObterTela()
     {
         if (opcaoEscolhida == '1')
-            return telaAmigos;
+            return telaAmigo;
 
         else if (opcaoEscolhida == '2')
-            return telaCaixas;
+            return telaCaixa;
 
         else if (opcaoEscolhida == '3')
-            return telaRevistas;
+            return telaRevista;
 
         else if (opcaoEscolhida == '4')
-            return telaEmprestimos;
+            return telaEmprestimo;
 
         return null;
     }
