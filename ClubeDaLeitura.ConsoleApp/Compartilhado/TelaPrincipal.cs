@@ -16,13 +16,20 @@ public class TelaPrincipal
     private TelaAmigo telaAmigo;
     private TelaCaixa telaCaixa;
     private TelaRevista telaRevista;
-    private TelaRevista telaEmprestimo;
+    private TelaEmprestimo telaEmprestimo;
     public TelaPrincipal()
     {
         repositorioAmigo = new RepositorioAmigo();
         telaAmigo = new TelaAmigo(repositorioAmigo);
+
         repositorioCaixa = new RepositorioCaixa();
         telaCaixa = new TelaCaixa(repositorioCaixa);
+
+        repositorioRevista = new RepositorioRevista();
+        telaRevista = new TelaRevista(repositorioRevista, repositorioCaixa);
+
+        repositorioEmprestimo = new RepositorioEmprestimo();
+        telaEmprestimo = new TelaEmprestimo(repositorioEmprestimo, repositorioAmigo, repositorioRevista);
     }
     public void ApresentarMenuPrincipal()
     {
@@ -42,7 +49,7 @@ public class TelaPrincipal
 
         Console.WriteLine();
 
-        Console.WriteLine("Escolha uma das opções");
+        Console.WriteLine("Escolha uma das opções: ");
         opcaoEscolhida = Console.ReadLine()[0];
 
     }

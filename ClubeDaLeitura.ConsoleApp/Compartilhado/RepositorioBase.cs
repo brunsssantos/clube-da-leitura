@@ -9,6 +9,7 @@ public abstract class RepositorioBase
 
     public void CadastrarRegistro(EntidadeBase novoRegistro)
     {
+        novoRegistro.id = contadorRegistros;
         registros[contadorRegistros] = novoRegistro;
 
         contadorRegistros++;
