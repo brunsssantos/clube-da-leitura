@@ -25,7 +25,7 @@ public class TelaAmigo : TelaBase
                 continue;
 
             Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -15}",
-                a.id, a.nome, a.nomeResponsavel, a.telefone);
+                a.id, a.Nome, a.NomeResponsavel, a.Telefone);
         }
 
         Console.ReadLine();
@@ -43,9 +43,9 @@ public class TelaAmigo : TelaBase
         string telefone = Console.ReadLine();
 
         Amigo amigo = new Amigo();
-        amigo.nome = nome;
-        amigo.nomeResponsavel = nomeResponsavel;
-        amigo.telefone = telefone;
+        amigo.Nome = nome;
+        amigo.NomeResponsavel = nomeResponsavel;
+        amigo.Telefone = telefone;
 
         return amigo;
     }

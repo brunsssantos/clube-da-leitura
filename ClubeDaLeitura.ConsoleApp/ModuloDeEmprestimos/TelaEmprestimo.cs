@@ -33,7 +33,7 @@ public class TelaEmprestimo : TelaBase
                 continue;
 
             Console.WriteLine("{0,-10} | {1,-15} | {2,-20} | {3,-15} | {4,-15} | {5,-10}",
-                e.id, e.amigo.nome, e.revista.titulo,
+                e.id, e.amigo.Nome, e.revista.titulo,
                 e.dataEmprestimo.ToShortDateString(),
                 e.dataDevolucao.ToShortDateString(),
                 e.status);
@@ -47,7 +47,7 @@ public class TelaEmprestimo : TelaBase
         Console.WriteLine("Lista de Amigos:");
         foreach (Amigo a in repositorioAmigo.SelecionarRegistros())
             if (a != null)
-                Console.WriteLine($"ID: {a.id} - {a.nome}");
+                Console.WriteLine($"ID: {a.id} - {a.Nome}");
 
         Console.Write("Informe o ID do amigo: ");
         int idAmigo = Convert.ToInt32(Console.ReadLine());
