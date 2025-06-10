@@ -39,5 +39,5 @@ Você poderá gerenciar amigos, caixas organizadoras, revistas e os empréstimos
   - `ModuloDeRevistas` → Cadastro e controle de revistas
   - `ModuloDeEmprestimos` → Empréstimos e devoluções
 
-  ## Tecnologias Utilizadas: 
+## Tecnologias Utilizadas: 
 [![Tecnologias](https://skillicons.dev/icons?i=git,github,cs,dotnet,visualstudio,)](https://skillicons.dev)
