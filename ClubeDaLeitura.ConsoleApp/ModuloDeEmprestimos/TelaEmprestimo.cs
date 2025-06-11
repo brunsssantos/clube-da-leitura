@@ -64,7 +64,7 @@ public class TelaEmprestimo : TelaBase
 
         DateTime dataEmprestimo = DateTime.Now;
         
-        int dias = revistaSelecionada.caixa.diasEmprestimo;
+        int dias = revistaSelecionada.caixa.DiasEmprestimo;
         DateTime dataDevolucao = dataEmprestimo.AddDays(dias);
 
         revistaSelecionada.status = "Emprestada";

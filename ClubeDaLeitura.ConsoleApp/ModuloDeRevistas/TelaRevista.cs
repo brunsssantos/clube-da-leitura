@@ -30,7 +30,7 @@ public class TelaRevista : TelaBase
                 continue;
 
             Console.WriteLine("{0,-10} | {1,-20} | {2,-10} | {3,-5} | {4,-15} | {5,-10}",
-                r.id, r.titulo, r.numeroEdicao, r.ano, r.caixa.etiqueta, r.status);
+                r.id, r.titulo, r.numeroEdicao, r.ano, r.caixa.Etiqueta, r.status);
         }
 
         Console.ReadLine();
@@ -45,7 +45,7 @@ public class TelaRevista : TelaBase
             if (caixa == null)
                 continue;
 
-            Console.WriteLine($"ID: {caixa.id} | Etiqueta: {caixa.etiqueta} | Cor: {caixa.cor}");
+            Console.WriteLine($"ID: {caixa.id} | Etiqueta: {caixa.Etiqueta} | Cor: {caixa.Cor}");
         }
     }
 

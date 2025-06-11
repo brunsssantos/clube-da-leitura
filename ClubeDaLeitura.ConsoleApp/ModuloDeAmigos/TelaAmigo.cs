@@ -28,7 +28,7 @@ public class TelaAmigo : TelaBase
             if (a == null)
                 continue;
 
-            Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -15}",
+            Console.WriteLine("{0, -10} | {1, -30} | {2, -30} | {3, -20}",
                 a.id, a.Nome, a.NomeResponsavel, a.Telefone);
         }
 

@@ -4,29 +4,43 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloDeCaixas;
 
 public class Caixa : EntidadeBase
 {
-    public string etiqueta;
-    public string cor;
-    public int diasEmprestimo;
+    public string Etiqueta { get; set; }
+    public string Cor { get; set; }
+    public int DiasEmprestimo { get; set; }
+
+    public Caixa(string etiqueta, string cor)
+    {
+        Etiqueta = etiqueta;
+        Cor = cor;
+        DiasEmprestimo = 7;
+    }
+    public Caixa(string etiqueta, string cor, int diasEmprestimo)
+    {
+        Etiqueta = etiqueta;
+        Cor = cor;
+        DiasEmprestimo = diasEmprestimo;
+    }
+
     public override void AtualizarRegistro(EntidadeBase registroAtualizado)
     {
         Caixa caixaAtualizada = (Caixa)registroAtualizado;
 
-        this.etiqueta = caixaAtualizada.etiqueta;
-        this.cor = caixaAtualizada.cor;
-        this.diasEmprestimo = caixaAtualizada.diasEmprestimo;
+        this.Etiqueta = caixaAtualizada.Etiqueta;
+        this.Cor = caixaAtualizada.Cor;
+        this.DiasEmprestimo = caixaAtualizada.DiasEmprestimo;
     }
 
     public override string Validar()
     {
         string erros = "";
 
-        if (string.IsNullOrWhiteSpace(etiqueta) || etiqueta.Length > 50)
+        if (string.IsNullOrWhiteSpace(Etiqueta) || Etiqueta.Length > 50)
             erros += "Etiqueta é obrigatória e deve ter no máximo 50 caracteres.\n";
 
-        if (string.IsNullOrWhiteSpace(cor))
+        if (string.IsNullOrWhiteSpace(Cor))
             erros += "A cor da caixa é obrigatória.\n";
 
-        if (diasEmprestimo <= 0)
+        if (DiasEmprestimo <= 0)
             erros += "Dias de empréstimo deve ser maior que 0.\n";
 
         return erros;

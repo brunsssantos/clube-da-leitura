@@ -14,18 +14,20 @@ public class TelaCaixa : TelaBase
 
         Console.WriteLine("Visualização de Caixas\n");
 
-        Console.WriteLine("{0, -10} | {1, -20} | {2, -10} | {3, -15}",
+        Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -30}",
             "Id", "Etiqueta", "Cor", "Dias de Empréstimo");
 
         EntidadeBase[] caixas = repositorio.SelecionarRegistros();
 
-        foreach (Caixa c in caixas)
+        for (int i = 0; i < caixas.Length; i ++)
         {
+            Caixa c = (Caixa)caixas[i];
+
             if (c == null)
                 continue;
 
-            Console.WriteLine("{0, -10} | {1, -20} | {2, -10} | {3, -15}",
-                c.id, c.etiqueta, c.cor, c.diasEmprestimo);
+            Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -30}",
+                c.id, c.Etiqueta, c.Cor, c.DiasEmprestimo);
         }
 
         Console.ReadLine();
@@ -42,11 +44,10 @@ public class TelaCaixa : TelaBase
         Console.Write("Digite os dias de empréstimo (padrão 7): ");
         int diasEmprestimo = Convert.ToInt32(Console.ReadLine());
 
-        Caixa caixa = new Caixa();
-        caixa.etiqueta = etiqueta;
-        caixa.cor = cor;
-        caixa.diasEmprestimo = diasEmprestimo;
-
+        Caixa caixa = new Caixa(etiqueta, cor, diasEmprestimo);
+        caixa.Etiqueta = etiqueta;
+        caixa.Cor = cor;
+        caixa.DiasEmprestimo = diasEmprestimo;
         return caixa;
     }
 
