@@ -9,18 +9,22 @@ public class TelaAmigo : TelaBase
     }
     public override void VisualizarRegistros(bool exibirCabecalho)
     {
-        if (exibirCabecalho)
+        if (exibirCabecalho == true)
             ExibirCabecalho();
 
         Console.WriteLine("Visualização de Amigos\n");
 
-        Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -15}",
+        Console.WriteLine();
+
+        Console.WriteLine("{0, -10} | {1, -30} | {2, -30} | {3, -20}",
             "Id", "Nome", "Responsável", "Telefone");
 
         EntidadeBase[] amigos = repositorio.SelecionarRegistros();
 
-        foreach (Amigo a in amigos)
+        for (int i = 0; i < amigos.Length; i++)
         {
+            Amigo a = (Amigo)amigos[i];
+
             if (a == null)
                 continue;
 
