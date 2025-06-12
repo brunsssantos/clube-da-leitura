@@ -5,36 +5,45 @@ namespace ClubeDaLeitura.ConsoleApp.ModuloDeRevistas;
 
 public class Revista : EntidadeBase
 {
-    public string titulo;
-    public int numeroEdicao;
-    public int ano;
-    public string status;
-    public Caixa caixa;
+    public string Titulo {  get; set; }
+    public int NumeroEdicao { get; set; }
+    public int Ano { get; set; }
+    public string Status { get; set; }
+    public Caixa Caixa { get; set; }
+
+    public Revista(string titulo, int numeroEdicao, int ano, Caixa caixa)
+    {
+        Titulo = titulo;
+        NumeroEdicao = numeroEdicao;
+        Ano = ano;
+        Status = "Disponível";
+        Caixa = caixa;
+    }
+
     public override void AtualizarRegistro(EntidadeBase registroAtualizado)
     {
         Revista revistaAtualizada = (Revista)registroAtualizado;
 
-        this.titulo = revistaAtualizada.titulo;
-        this.numeroEdicao = revistaAtualizada.numeroEdicao;
-        this.ano = revistaAtualizada.ano;
-        this.status = revistaAtualizada.status;
-        this.caixa = revistaAtualizada.caixa;
+        this.Titulo = revistaAtualizada.Titulo;
+        this.NumeroEdicao = revistaAtualizada.NumeroEdicao;
+        this.Ano = revistaAtualizada.Ano;
+        this.Caixa = revistaAtualizada.Caixa;
     }
 
     public override string Validar()
     {
         string erros = "";
 
-        if (string.IsNullOrWhiteSpace(titulo) || titulo.Length < 2 || titulo.Length > 100)
+        if (string.IsNullOrWhiteSpace(Titulo) || Titulo.Length < 2 || Titulo.Length > 100)
             erros += "Título deve ter entre 2 e 100 caracteres.\n";
 
-        if (numeroEdicao <= 0)
+        if (NumeroEdicao <= 0)
             erros += "Número da edição deve ser maior que zero.\n";
 
-        if (ano < 1900 || ano > DateTime.Now.Year)
+        if (Ano < DateTime.MinValue.Year || Ano > DateTime.Now.Year)
             erros += "Ano inválido.\n";
 
-        if (caixa == null)
+        if (Caixa == null)
             erros += "A revista precisa estar associada a uma caixa.\n";
 
         return erros;

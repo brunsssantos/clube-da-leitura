@@ -19,18 +19,19 @@ public class TelaRevista : TelaBase
             ExibirCabecalho();
 
         Console.WriteLine("Visualização de Revistas\n");
-        Console.WriteLine("{0,-10} | {1,-20} | {2,-10} | {3,-5} | {4,-15} | {5,-10}",
-            "Id", "Título", "Edição", "Ano", "Caixa", "Status");
+        Console.WriteLine("{0,-10} | {1,-30} | {2,-10} | {3,-20} | {4,-20} | {5,-20}",
+            "Id", "Título", "Edição", "Ano de Publicação", "Caixa", "Status");
 
         EntidadeBase[] revistas = repositorio.SelecionarRegistros();
 
-        foreach (Revista r in revistas)
+        for (int i = 0; i < revistas.Length; i++)  
         {
+            Revista r = (Revista)revistas[i];
             if (r == null)
                 continue;
 
-            Console.WriteLine("{0,-10} | {1,-20} | {2,-10} | {3,-5} | {4,-15} | {5,-10}",
-                r.id, r.titulo, r.numeroEdicao, r.ano, r.caixa.Etiqueta, r.status);
+            Console.WriteLine("{0,-10} | {1,-30} | {2,-10} | {3,-20} | {4,-20} | {5,-20}",
+                r.id, r.Titulo, r.NumeroEdicao, r.Ano, r.Caixa.Etiqueta, r.Status);
         }
 
         Console.ReadLine();
@@ -38,15 +39,26 @@ public class TelaRevista : TelaBase
 
     private void VisualizarCaixas()
     {
+       
+        Console.WriteLine("Visualização de Caixas\n");
+
+        Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -30}",
+            "Id", "Etiqueta", "Cor", "Dias de Empréstimo");
+
         EntidadeBase[] caixas = repositorioCaixa.SelecionarRegistros();
 
-        foreach (Caixa caixa in caixas)
+        for (int i = 0; i < caixas.Length; i++)
         {
-            if (caixa == null)
+            Caixa c = (Caixa)caixas[i];
+
+            if (c == null)
                 continue;
 
-            Console.WriteLine($"ID: {caixa.id} | Etiqueta: {caixa.Etiqueta} | Cor: {caixa.Cor}");
+            Console.WriteLine("{0, -10} | {1, -20} | {2, -20} | {3, -30}",
+                c.id, c.Etiqueta, c.Cor, c.DiasEmprestimo);
         }
+
+        Console.ReadLine();
     }
 
     protected override EntidadeBase ObterDados()
@@ -68,12 +80,7 @@ public class TelaRevista : TelaBase
 
         Caixa caixaSelecionada = (Caixa)repositorioCaixa.SelecionarRegistroPorId(idCaixa);
 
-        Revista revista = new Revista();
-        revista.titulo = titulo;
-        revista.numeroEdicao = numeroEdicao;
-        revista.ano = ano;
-        revista.caixa = caixaSelecionada;
-        revista.status = "Disponível";
+        Revista revista = new Revista(titulo, numeroEdicao, ano, caixaSelecionada);
 
         return revista;
     }

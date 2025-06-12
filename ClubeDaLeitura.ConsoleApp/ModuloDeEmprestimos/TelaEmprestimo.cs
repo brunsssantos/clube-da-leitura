@@ -33,7 +33,7 @@ public class TelaEmprestimo : TelaBase
                 continue;
 
             Console.WriteLine("{0,-10} | {1,-15} | {2,-20} | {3,-15} | {4,-15} | {5,-10}",
-                e.id, e.amigo.Nome, e.revista.titulo,
+                e.id, e.amigo.Nome, e.revista.Titulo,
                 e.dataEmprestimo.ToShortDateString(),
                 e.dataDevolucao.ToShortDateString(),
                 e.status);
@@ -55,8 +55,8 @@ public class TelaEmprestimo : TelaBase
 
         Console.WriteLine("Lista de Revistas Disponíveis:");
         foreach (Revista r in repositorioRevista.SelecionarRegistros())
-            if (r != null && r.status == "Disponível")
-                Console.WriteLine($"ID: {r.id} - {r.titulo}");
+            if (r != null && r.Status == "Disponível")
+                Console.WriteLine($"ID: {r.id} - {r.Titulo}");
 
         Console.Write("Informe o ID da revista: ");
         int idRevista = Convert.ToInt32(Console.ReadLine());
@@ -64,10 +64,10 @@ public class TelaEmprestimo : TelaBase
 
         DateTime dataEmprestimo = DateTime.Now;
         
-        int dias = revistaSelecionada.caixa.DiasEmprestimo;
+        int dias = revistaSelecionada.Caixa.DiasEmprestimo;
         DateTime dataDevolucao = dataEmprestimo.AddDays(dias);
 
-        revistaSelecionada.status = "Emprestada";
+        revistaSelecionada.Status = "Emprestada";
 
         Emprestimo emprestimo = new Emprestimo();
         emprestimo.amigo = amigoSelecionado;

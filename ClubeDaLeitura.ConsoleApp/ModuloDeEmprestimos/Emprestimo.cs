@@ -29,7 +29,7 @@ public class Emprestimo : EntidadeBase
         if (amigo == null)
             erros += "Amigo é obrigatório.\n";
 
-        if (revista == null || revista.status != "Disponível")
+        if (revista == null || revista.Status != "Disponível")
             erros += "A revista deve estar disponível.\n";
 
         return erros;

@@ -18,7 +18,7 @@ public abstract class TelaBase
         Console.WriteLine($"1 - Cadastro de {nomeEntidade}");
         Console.WriteLine($"2 - Visualizar {nomeEntidade}");
         Console.WriteLine($"3 - Editar {nomeEntidade}");
-        Console.WriteLine($"3 - Excluir {nomeEntidade}");
+        Console.WriteLine($"4 - Excluir {nomeEntidade}");
         Console.WriteLine($"S - Sair");
 
         Console.WriteLine();
@@ -73,7 +73,7 @@ public abstract class TelaBase
 
         VisualizarRegistros(false);
 
-        Console.WriteLine("Digite o id do fabricante que deseja selecionar:");
+        Console.WriteLine($"Digite o id do {nomeEntidade} que deseja selecionar:");
         int idSelecionado = Convert.ToInt32(Console.ReadLine());
 
         Console.WriteLine();
