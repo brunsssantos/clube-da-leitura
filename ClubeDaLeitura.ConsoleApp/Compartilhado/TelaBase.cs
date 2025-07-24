@@ -64,7 +64,7 @@ public abstract class TelaBase
         Console.ReadLine();
     }
 
-    public void EditarRegistros()
+    public virtual void EditarRegistros()
     {
         ExibirCabecalho();
 
